@@ -8,6 +8,14 @@ genera un embedding por cada chunk usando la API de OpenAI
 (`text-embedding-3-small`) y lo inserta —junto con la metadata del
 chunk— en la tabla `document_chunks` de Supabase.
 
+Incluye:
+    - Barra de progreso en consola (global y por documento).
+    - Reintentos automáticos con backoff ante fallos transitorios, tanto
+      al generar embeddings como al insertar en Supabase.
+    - Un resumen final y `library/metadata/embeddings_metadata.json` con
+      las estadísticas de la ejecución (se generan siempre al terminar,
+      incluso si hubo errores en algunos lotes).
+
 Solo lee `library/chunks/` (y, de forma indirecta, `library/clean/` a
 través de los chunks ya generados en el Capítulo 4). No modifica ninguno
 de los dos.
@@ -50,6 +58,8 @@ MODELO_EMBEDDING = "text-embedding-3-small"
 DIMENSIONES_EMBEDDING = 1536
 TABLA_DESTINO = os.getenv("SUPABASE_CHUNKS_TABLE", "document_chunks")
 TAMANO_LOTE = 50  # chunks por llamada a OpenAI / por inserción en Supabase
+INTENTOS_MAXIMOS = 3  # reintentos automáticos ante fallos transitorios
+ESPERA_BASE_SEGUNDOS = 2  # backoff: 2s, 4s, 6s...
 
 
 # ----------------------------------------------------------------------------
@@ -164,6 +174,30 @@ def obtener_chunk_ids_existentes(cliente_supabase, tabla: str) -> set[str]:
 # 3. Embeddings e inserción por lotes
 # ----------------------------------------------------------------------------
 
+def con_reintentos(funcion, *args, **kwargs):
+    """
+    Ejecuta `funcion(*args, **kwargs)` con reintentos automáticos y
+    backoff progresivo (2s, 4s, 6s...) ante fallos transitorios: caídas de
+    red, límites de tasa (rate limiting) de OpenAI, o errores momentáneos
+    de Supabase. Si se agotan los intentos, se relanza el último error
+    para que el llamador lo registre y continúe con el siguiente lote.
+    """
+    ultimo_error = None
+    for intento in range(1, INTENTOS_MAXIMOS + 1):
+        try:
+            return funcion(*args, **kwargs)
+        except Exception as error:  # noqa: BLE001 - se reintenta o se relanza
+            ultimo_error = error
+            if intento < INTENTOS_MAXIMOS:
+                espera = ESPERA_BASE_SEGUNDOS * intento
+                print(
+                    f"\n  ⚠️  Intento {intento}/{INTENTOS_MAXIMOS} falló ({error}); "
+                    f"reintentando en {espera}s..."
+                )
+                time.sleep(espera)
+    raise ultimo_error
+
+
 def generar_embeddings_lote(cliente_openai, textos: list[str]) -> list[list[float]]:
     """Genera embeddings para una lista de textos en una sola llamada a la API."""
     respuesta = cliente_openai.embeddings.create(model=MODELO_EMBEDDING, input=textos)
@@ -193,6 +227,14 @@ def insertar_lote_supabase(cliente_supabase, tabla: str, registros: list[dict]) 
 # 4. Progreso, metadata final y resumen en consola
 # ----------------------------------------------------------------------------
 
+def barra_progreso(actual: int, total: int, ancho: int = 30) -> str:
+    """Construye una barra de progreso de texto, ej. '[████████░░] 78.0%'."""
+    fraccion = min(actual / total, 1.0) if total else 1.0
+    llenado = int(ancho * fraccion)
+    barra = "█" * llenado + "░" * (ancho - llenado)
+    return f"[{barra}] {fraccion * 100:5.1f}%"
+
+
 def imprimir_progreso(
     indice_documento: int,
     total_documentos: int,
@@ -202,13 +244,15 @@ def imprimir_progreso(
     procesados_global: int,
     total_chunks_global: int,
 ) -> None:
-    porcentaje_doc = (chunks_procesados_doc / total_chunks_doc * 100) if total_chunks_doc else 100
-    porcentaje_global = (procesados_global / total_chunks_global * 100) if total_chunks_global else 100
-    print(
-        f"[{indice_documento}/{total_documentos}] {nombre_documento} — "
-        f"{chunks_procesados_doc}/{total_chunks_doc} chunks ({porcentaje_doc:.1f}%) "
-        f"| global: {procesados_global}/{total_chunks_global} ({porcentaje_global:.1f}%)"
+    """Imprime una barra de progreso global que se actualiza en la misma
+    línea, mostrando además el documento actual y su avance."""
+    barra = barra_progreso(procesados_global, total_chunks_global)
+    linea = (
+        f"\r{barra} | doc [{indice_documento}/{total_documentos}] {nombre_documento} "
+        f"({chunks_procesados_doc}/{total_chunks_doc})"
     )
+    # Rellena con espacios por si la línea anterior era más larga.
+    print(linea.ljust(120), end="", flush=True)
 
 
 def guardar_metadata_embeddings(estadisticas: dict) -> Path:
@@ -283,11 +327,11 @@ def main():
         for inicio_lote in range(0, len(pendientes), TAMANO_LOTE):
             lote = pendientes[inicio_lote : inicio_lote + TAMANO_LOTE]
             try:
-                embeddings = generar_embeddings_lote(cliente_openai, [r["text"] for r in lote])
+                embeddings = con_reintentos(generar_embeddings_lote, cliente_openai, [r["text"] for r in lote])
                 for registro, embedding in zip(lote, embeddings):
                     registro["embedding"] = embedding
 
-                insertar_lote_supabase(cliente_supabase, TABLA_DESTINO, lote)
+                con_reintentos(insertar_lote_supabase, cliente_supabase, TABLA_DESTINO, lote)
 
                 for registro in lote:
                     chunk_ids_existentes.add(registro["chunk_id"])
@@ -296,7 +340,8 @@ def main():
                 total_chunks_insertados += len(lote)
                 procesados_doc += len(lote)
                 procesados_global += len(lote)
-            except Exception as error:  # noqa: BLE001 - se registra y se continúa
+            except Exception as error:  # noqa: BLE001 - ya se reintentó; se registra y se continúa
+                print(f"\n  ❌ Falló definitivamente el lote de '{nombre_documento}': {error}")
                 errores.append({"archivo": nombre_documento, "mensaje": str(error)})
 
             imprimir_progreso(
@@ -309,6 +354,7 @@ def main():
                 total_chunks_biblioteca,
             )
 
+    print()  # cierra la línea de la barra de progreso antes del resumen
     tiempo_total = time.perf_counter() - inicio
 
     estadisticas = {

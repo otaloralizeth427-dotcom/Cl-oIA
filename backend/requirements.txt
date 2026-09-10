@@ -3,6 +3,7 @@ uvicorn
 supabase
 python-dotenv
 openai
+psycopg2-binary
 pymupdf
 langchain
 langchain-community

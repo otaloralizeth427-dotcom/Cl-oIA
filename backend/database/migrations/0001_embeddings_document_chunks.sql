@@ -18,7 +18,12 @@
 --
 -- No se ejecuta automáticamente: hay que aplicarla manualmente en Supabase
 -- (SQL editor o CLI) antes de correr scripts/embed_chunks.py.
+--
+-- Todos los cambios van dentro de una transacción: si algún paso falla,
+-- no queda el esquema a medio migrar.
 -- ============================================================================
+
+begin;
 
 alter table document_chunks
     drop constraint if exists document_chunks_document_id_fkey;
@@ -48,3 +53,5 @@ create unique index if not exists idx_document_chunks_chunk_id
 -- Índice para filtrar chunks por categoría sin pasar por `documents`.
 create index if not exists idx_document_chunks_category
     on document_chunks (category);
+
+commit;
