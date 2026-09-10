@@ -2,6 +2,7 @@ fastapi
 uvicorn
 supabase
 python-dotenv
+openai
 pymupdf
 langchain
 langchain-community
