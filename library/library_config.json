@@ -1,0 +1,40 @@
+{
+  "categorias": [
+    {
+      "nombre": "Colorimetría",
+      "carpeta": "01_Colorimetria",
+      "cantidad_esperada_documentos": 0,
+      "idioma": "español"
+    },
+    {
+      "nombre": "Armario Cápsula",
+      "carpeta": "02_Armario_Capsula",
+      "cantidad_esperada_documentos": 0,
+      "idioma": "español"
+    },
+    {
+      "nombre": "Estilos Personales",
+      "carpeta": "03_Estilos_Personales",
+      "cantidad_esperada_documentos": 0,
+      "idioma": "español"
+    },
+    {
+      "nombre": "Morfología Corporal",
+      "carpeta": "04_Morfologia_Corporal",
+      "cantidad_esperada_documentos": 0,
+      "idioma": "español"
+    },
+    {
+      "nombre": "Dress Code",
+      "carpeta": "05_Dress_Code",
+      "cantidad_esperada_documentos": 0,
+      "idioma": "español"
+    },
+    {
+      "nombre": "Combinación de Colores",
+      "carpeta": "06_Combinacion_Colores",
+      "cantidad_esperada_documentos": 0,
+      "idioma": "español"
+    }
+  ]
+}

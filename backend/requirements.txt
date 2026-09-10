@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+supabase
+python-dotenv
+pymupdf
+langchain
+langchain-community
+sentence-transformers
+pgvector
+pydantic
