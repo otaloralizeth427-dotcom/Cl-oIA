@@ -1,0 +1,24 @@
+{
+  "total_documentos_procesados": 21,
+  "total_chunks_generados": 125,
+  "chunks_por_categoria": {
+    "01_Colorimetria": 17,
+    "02_Armario_Capsula": 13,
+    "03_Estilos_Personales": 64,
+    "04_Morfologia_Corporal": 5,
+    "05_Dress_Code": 20,
+    "06_Combinacion_Colores": 6
+  },
+  "promedio_palabras_por_chunk": 407.0,
+  "documento_con_mas_chunks": {
+    "documento": "01_Siete_Estilos_Universales.md",
+    "categoria": "03_Estilos_Personales",
+    "chunks": 55
+  },
+  "documento_con_menos_chunks": {
+    "documento": "02_Arquetipos_De_Estilo.md",
+    "categoria": "03_Estilos_Personales",
+    "chunks": 1
+  },
+  "fecha_generacion": "2026-09-10T16:56:21"
+}
