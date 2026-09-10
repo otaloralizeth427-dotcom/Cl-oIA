@@ -1,0 +1,17 @@
+# Variables de entorno (contienen credenciales reales, nunca se suben)
+.env
+backend/.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node / React
+node_modules/
+frontend/dist/
+frontend/build/
+
+# Sistema
+.DS_Store
