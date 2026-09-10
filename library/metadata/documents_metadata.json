@@ -1,0 +1,212 @@
+[
+  {
+    "nombre": "01_Colores_que No_Deberías_Usar Según_tu_Tono_de Piel.pdf",
+    "categoria": "01_Colorimetria",
+    "ruta_pdf": "library/raw/01_Colorimetria/01_Colores_que No_Deberías_Usar Según_tu_Tono_de Piel.pdf",
+    "ruta_markdown": "library/clean/01_Colorimetria/01_Colores_que No_Deberías_Usar Según_tu_Tono_de Piel.md",
+    "cantidad_paginas": 4,
+    "cantidad_caracteres": 2981,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:26:54"
+  },
+  {
+    "nombre": "02_Como_Encontrar_Tu_Estacion.pdf",
+    "categoria": "01_Colorimetria",
+    "ruta_pdf": "library/raw/01_Colorimetria/02_Como_Encontrar_Tu_Estacion.pdf",
+    "ruta_markdown": "library/clean/01_Colorimetria/02_Como_Encontrar_Tu_Estacion.md",
+    "cantidad_paginas": 19,
+    "cantidad_caracteres": 21005,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:26:54"
+  },
+  {
+    "nombre": "03_Invierno_vs_Verano_Frio.pdf",
+    "categoria": "01_Colorimetria",
+    "ruta_pdf": "library/raw/01_Colorimetria/03_Invierno_vs_Verano_Frio.pdf",
+    "ruta_markdown": "library/clean/01_Colorimetria/03_Invierno_vs_Verano_Frio.md",
+    "cantidad_paginas": 4,
+    "cantidad_caracteres": 2682,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:26:54"
+  },
+  {
+    "nombre": "04_Colorimetia_estacion_de_color.pdf",
+    "categoria": "01_Colorimetria",
+    "ruta_pdf": "library/raw/01_Colorimetria/04_Colorimetia_estacion_de_color.pdf",
+    "ruta_markdown": "library/clean/01_Colorimetria/04_Colorimetia_estacion_de_color.md",
+    "cantidad_paginas": 6,
+    "cantidad_caracteres": 5104,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:26:54"
+  },
+  {
+    "nombre": "01_Metodo_10_Piezas_Base.pdf",
+    "categoria": "02_Armario_Capsula",
+    "ruta_pdf": "library/raw/02_Armario_Capsula/01_Metodo_10_Piezas_Base.pdf",
+    "ruta_markdown": "library/clean/02_Armario_Capsula/01_Metodo_10_Piezas_Base.md",
+    "cantidad_paginas": 8,
+    "cantidad_caracteres": 5934,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:26:54"
+  },
+  {
+    "nombre": "02_Armario_Capsula_Paleta.pdf",
+    "categoria": "02_Armario_Capsula",
+    "ruta_pdf": "library/raw/02_Armario_Capsula/02_Armario_Capsula_Paleta.pdf",
+    "ruta_markdown": "library/clean/02_Armario_Capsula/02_Armario_Capsula_Paleta.md",
+    "cantidad_paginas": 11,
+    "cantidad_caracteres": 6384,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:26:54"
+  },
+  {
+    "nombre": "03_Outfit_de_negocios.pdf",
+    "categoria": "02_Armario_Capsula",
+    "ruta_pdf": "library/raw/02_Armario_Capsula/03_Outfit_de_negocios.pdf",
+    "ruta_markdown": "library/clean/02_Armario_Capsula/03_Outfit_de_negocios.md",
+    "cantidad_paginas": 1,
+    "cantidad_caracteres": 9819,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:26:55"
+  },
+  {
+    "nombre": "04_Fondo_Armario_Basico.pdf",
+    "categoria": "02_Armario_Capsula",
+    "ruta_pdf": "library/raw/02_Armario_Capsula/04_Fondo_Armario_Basico.pdf",
+    "ruta_markdown": "library/clean/02_Armario_Capsula/04_Fondo_Armario_Basico.md",
+    "cantidad_paginas": 3,
+    "cantidad_caracteres": 3446,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:26:55"
+  },
+  {
+    "nombre": "01_Siete_Estilos_Universales.pdf",
+    "categoria": "03_Estilos_Personales",
+    "ruta_pdf": "library/raw/03_Estilos_Personales/01_Siete_Estilos_Universales.pdf",
+    "ruta_markdown": "library/clean/03_Estilos_Personales/01_Siete_Estilos_Universales.md",
+    "cantidad_paginas": 92,
+    "cantidad_caracteres": 105332,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:01"
+  },
+  {
+    "nombre": "02_Arquetipos_De_Estilo.pdf",
+    "categoria": "03_Estilos_Personales",
+    "ruta_pdf": "library/raw/03_Estilos_Personales/02_Arquetipos_De_Estilo.pdf",
+    "ruta_markdown": "library/clean/03_Estilos_Personales/02_Arquetipos_De_Estilo.md",
+    "cantidad_paginas": 4,
+    "cantidad_caracteres": 2613,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:01"
+  },
+  {
+    "nombre": "03_Closet_con_tu_paleta.pdf",
+    "categoria": "03_Estilos_Personales",
+    "ruta_pdf": "library/raw/03_Estilos_Personales/03_Closet_con_tu_paleta.pdf",
+    "ruta_markdown": "library/clean/03_Estilos_Personales/03_Closet_con_tu_paleta.md",
+    "cantidad_paginas": 4,
+    "cantidad_caracteres": 2577,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:01"
+  },
+  {
+    "nombre": "04_Claves_Old_Money.pdf",
+    "categoria": "03_Estilos_Personales",
+    "ruta_pdf": "library/raw/03_Estilos_Personales/04_Claves_Old_Money.pdf",
+    "ruta_markdown": "library/clean/03_Estilos_Personales/04_Claves_Old_Money.md",
+    "cantidad_paginas": 5,
+    "cantidad_caracteres": 4739,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:01"
+  },
+  {
+    "nombre": "05_Estilo_Minimalista.pdf",
+    "categoria": "03_Estilos_Personales",
+    "ruta_pdf": "library/raw/03_Estilos_Personales/05_Estilo_Minimalista.pdf",
+    "ruta_markdown": "library/clean/03_Estilos_Personales/05_Estilo_Minimalista.md",
+    "cantidad_paginas": 7,
+    "cantidad_caracteres": 6727,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:01"
+  },
+  {
+    "nombre": "01_Guia_Morfologia_Corporal.pdf",
+    "categoria": "04_Morfologia_Corporal",
+    "ruta_pdf": "library/raw/04_Morfologia_Corporal/01_Guia_Morfologia_Corporal.pdf",
+    "ruta_markdown": "library/clean/04_Morfologia_Corporal/01_Guia_Morfologia_Corporal.md",
+    "cantidad_paginas": 4,
+    "cantidad_caracteres": 2399,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:01"
+  },
+  {
+    "nombre": "02_Identifica_Tu_Cuerpo_para _vestir.pdf",
+    "categoria": "04_Morfologia_Corporal",
+    "ruta_pdf": "library/raw/04_Morfologia_Corporal/02_Identifica_Tu_Cuerpo_para _vestir.pdf",
+    "ruta_markdown": "library/clean/04_Morfologia_Corporal/02_Identifica_Tu_Cuerpo_para _vestir.md",
+    "cantidad_paginas": 4,
+    "cantidad_caracteres": 2887,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:01"
+  },
+  {
+    "nombre": "03_Morfologia_Armario_Capsula.pdf",
+    "categoria": "04_Morfologia_Corporal",
+    "ruta_pdf": "library/raw/04_Morfologia_Corporal/03_Morfologia_Armario_Capsula.pdf",
+    "ruta_markdown": "library/clean/04_Morfologia_Corporal/03_Morfologia_Armario_Capsula.md",
+    "cantidad_paginas": 4,
+    "cantidad_caracteres": 3073,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:01"
+  },
+  {
+    "nombre": "01_Business_Casua.pdf",
+    "categoria": "05_Dress_Code",
+    "ruta_pdf": "library/raw/05_Dress_Code/01_Business_Casua.pdf",
+    "ruta_markdown": "library/clean/05_Dress_Code/01_Business_Casua.md",
+    "cantidad_paginas": 51,
+    "cantidad_caracteres": 32045,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:01"
+  },
+  {
+    "nombre": "02_Boda_Dia.pdf",
+    "categoria": "05_Dress_Code",
+    "ruta_pdf": "library/raw/05_Dress_Code/02_Boda_Dia.pdf",
+    "ruta_markdown": "library/clean/05_Dress_Code/02_Boda_Dia.md",
+    "cantidad_paginas": 4,
+    "cantidad_caracteres": 2750,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:02"
+  },
+  {
+    "nombre": "03_Eventos_Formales.pdf",
+    "categoria": "05_Dress_Code",
+    "ruta_pdf": "library/raw/05_Dress_Code/03_Eventos_Formales.pdf",
+    "ruta_markdown": "library/clean/05_Dress_Code/03_Eventos_Formales.md",
+    "cantidad_paginas": 14,
+    "cantidad_caracteres": 6033,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:02"
+  },
+  {
+    "nombre": "01_Circulo_Cromatico.pdf",
+    "categoria": "06_Combinacion_Colores",
+    "ruta_pdf": "library/raw/06_Combinacion_Colores/01_Circulo_Cromatico.pdf",
+    "ruta_markdown": "library/clean/06_Combinacion_Colores/01_Circulo_Cromatico.md",
+    "cantidad_paginas": 7,
+    "cantidad_caracteres": 7279,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:02"
+  },
+  {
+    "nombre": "02_Combinar_Colores_Armario.pdf",
+    "categoria": "06_Combinacion_Colores",
+    "ruta_pdf": "library/raw/06_Combinacion_Colores/02_Combinar_Colores_Armario.pdf",
+    "ruta_markdown": "library/clean/06_Combinacion_Colores/02_Combinar_Colores_Armario.md",
+    "cantidad_paginas": 3,
+    "cantidad_caracteres": 3675,
+    "idioma_detectado": "español",
+    "fecha_procesamiento": "2026-09-10T16:27:02"
+  }
+]
